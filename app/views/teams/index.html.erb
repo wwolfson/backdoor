@@ -1,0 +1,35 @@
+
+<%= form_for :team, url: teams_path do |f| %>
+  <p>
+    <%= f.label :team_name %><br>
+    <%= f.text_field :team_name %>
+  </p>
+ 
+  <p>
+    <%= f.label :team_seed %><br>
+    <%= f.text_field :team_seed %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<table>
+  <tr>
+    <th>TEAM LIST EDITOR:</th>
+  </tr>
+ 
+  <% @teams.each do |team| %>
+    <tr>
+	  <td><%= team.id %></td>
+      <td><%= team.team_name %></td>
+	  <td><%= team.team_seed %></td>
+	  <td><%= link_to 'Show Bracket', team %></td>
+	  <td><%= link_to 'Destroy', team_path(team), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+	</tr>
+  <% end %>
+</table>
+

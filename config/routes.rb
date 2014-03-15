@@ -1,8 +1,10 @@
-Backdoor::Application.routes.draw do
-  get "welcome/about"
+MarchMadness::Application.routes.draw do
 
-  get "welcome/index"
+resources :owners
 
-  root to: 'welcome#index'
+resources :teams
 
+
+root 'welcome#index'
+	
 end
